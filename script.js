@@ -2,8 +2,11 @@
 const youTubeCreds = {
     key: 'AIzaSyA54SI8UXryZuA4xbFhu6YzCXYnSGCPFuU',
     playListId: ['PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU'],
-    firstVid: '',
 }
+
+const youTubeUrl = {
+    URL: 'https://www.googleapis.com/youtube/v3/playlistItems?playlistId='+youTubeCreds.playListId[0]+'&key='+youTubeCreds.key
+};
 
 const options = {
     part: 'snippet',
@@ -12,17 +15,19 @@ const options = {
     playlistId: youTubeCreds.playListId
 };
 
-const youTubeUrl = {
-    URL: 'https://www.googleapis.com/youtube/v3/playlistItems?playlistId='+youTubeCreds.playListId[0]+'&key='+youTubeCreds.key
-};
+const tubeItems = {
+    firstVid: '',
+    titles: [],
+}
 
 const retrievePlayer = {
     retrieveVideos: function(){
         $.getJSON(youTubeUrl.URL, options, function(data){
-            youTubeCreds.firstVid = data.items[0].snippet.resourceId.videoId;
-            console.log(youTubeCreds.firstVid)
-            console.log(data.items);
-            playMainVideo.mainVid(youTubeCreds.firstVid);
+            tubeItems.firstVid = data.items[0].snippet.resourceId.videoId;
+            data.items.forEach(el => {
+                tubeItems.titles.push(el.snippet.title)
+            })
+            playMainVideo.mainVid(tubeItems.firstVid);
         });
     },
 };
