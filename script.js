@@ -1,3 +1,4 @@
+// Credentials for youtube - added in 
 const youTubeCreds = {
     key: 'AIzaSyA54SI8UXryZuA4xbFhu6YzCXYnSGCPFuU',
     playListId: ['PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU'],
@@ -12,8 +13,6 @@ const options = {
 };
 
 const youTubeUrl = {
-    vidIds: '',
-    vidUrls: '',
     URL: 'https://www.googleapis.com/youtube/v3/playlistItems?playlistId='+youTubeCreds.playListId[0]+'&key='+youTubeCreds.key
 };
 
