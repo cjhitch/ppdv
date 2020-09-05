@@ -20,24 +20,30 @@ const tubeItems = {
     titles: [],
 }
 
-const retrievePlayer = {
-    retrieveVideos: function(){
-        $.getJSON(youTubeUrl.URL, options, function(data){
-            tubeItems.firstVid = data.items[0].snippet.resourceId.videoId;
-            data.items.forEach(el => {
-                tubeItems.titles.push(el.snippet.title)
-            })
-            playMainVideo.mainVid(tubeItems.firstVid);
-        });
-    },
-};
-
-const playMainVideo = {
-    mainVid: function(firstVid){
-        document.querySelector('#main-video-player-0').innerHTML = `<div class="">
-            <iframe class="" width="1050px" height="600px" src="https://www.youtube-nocookie.com/embed/${firstVid}?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
-        </div>`
-    },
+const selOptions = () => {
+    const select = document.querySelector('select#vid_id');
+    select.innerHTML = tubeItems.titles.map((el, index) => {
+        return `<option id="${index}">${el}</option>`
+    })
 }
 
-retrievePlayer.retrieveVideos();
+const mainVid = (firstVid) => {
+    document.querySelector('#main-video-player-0').innerHTML = `
+        <div class="">
+            <iframe class="" width="1050px" height="600px" src="https://www.youtube-nocookie.com/embed/${firstVid}?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+        </div>
+    `
+}
+
+const retrieveVideos = () => {
+    $.getJSON(youTubeUrl.URL, options, (data) => {
+        tubeItems.firstVid = data.items[0].snippet.resourceId.videoId;
+        data.items.forEach(el => {
+            tubeItems.titles.push(el.snippet.title)
+        })
+        selOptions();
+        mainVid(tubeItems.firstVid);
+    });
+}
+
+retrieveVideos();
