@@ -16,7 +16,7 @@ const options = {
 };
 
 const tubeItems = {
-    firstVid: '',
+    videoIds: [],
     titles: [],
 }
 
@@ -25,24 +25,27 @@ const selOptions = () => {
     select.innerHTML = tubeItems.titles.map((el, index) => {
         return `<option id="${index}">${el}</option>`
     })
+    select.addEventListener('change', () => {
+        const index = select.selectedIndex;
+        mainVid(tubeItems.videoIds[index])
+    })
 }
 
-const mainVid = (firstVid) => {
+const mainVid = (loadVid) => {
     document.querySelector('#main-video-player-0').innerHTML = `
         <div class="">
-            <iframe class="" width="1050px" height="600px" src="https://www.youtube-nocookie.com/embed/${firstVid}?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+            <iframe class="" width="1050px" height="600px" src="https://www.youtube-nocookie.com/embed/${loadVid}?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
         </div>
     `
 }
 
 const retrieveVideos = () => {
     $.getJSON(youTubeUrl.URL, options, (data) => {
-        tubeItems.firstVid = data.items[0].snippet.resourceId.videoId;
         data.items.forEach(el => {
+            tubeItems.videoIds.push(el.snippet.resourceId.videoId)
             tubeItems.titles.push(el.snippet.title)
         })
         selOptions();
-        mainVid(tubeItems.firstVid);
     });
 }
 
