@@ -10,3 +10,9 @@ const options = {
     maxResults: 20,
     playlistId: youTubeCreds.playListId
 };
+
+const youTubeUrl = {
+    vidIds: '',
+    vidUrls: '',
+    URL: 'https://www.googleapis.com/youtube/v3/playlistItems?playlistId='+youTubeCreds.playListId[0]+'&key='+youTubeCreds.key
+};
