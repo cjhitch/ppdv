@@ -50,3 +50,45 @@ const retrieveVideos = () => {
 }
 
 retrieveVideos();
+
+
+        // async function to set the fatch and get json data back from the api
+        const asyncFetch = async (type, options) => {
+            // url for the api
+            const url = `https://complex-woolen-isthmus.glitch.me/api/${type}?accessToken=5b1064585f4ab8706d275f90`;
+            // check if the fetch is using options.body - if so stringify the data and send through with the options
+            if (options.body) {
+                options.body = JSON.stringify(task);
+            }
+            // run the response
+            let response = await fetch(url, options);
+            // there's no data returned on the delete method
+            if (options.method != 'DELETE') {
+                // get data from response
+                let data = await response.json();
+                // return the data to the calling function
+                return data;
+            }
+        };
+                // options for get fetch
+                const get =  {
+                    method: 'GET'
+                };
+
+                // create this as a function so it can be called again when items have been added, deleted, or updated
+                const getFetch = () => {
+                    // run the async function when the program starts
+                    asyncFetch('lists', get)
+                        .then(data => {
+                            console.log('Request succeeded with JSON response', data);
+                            // new event for when data is done being collect
+                            const event = new Event('data_collected');
+                            // attach the data to the DTO
+                            event.data = data;
+                            // dispatch the event
+                            document.dispatchEvent(event);
+                            }
+                        )
+                        // catch any errors and log them in the console
+                        .catch(err => console.log(`Fetch Error: ${err}`));
+                };
