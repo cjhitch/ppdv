@@ -3,7 +3,7 @@ import './Vid.scss';
 
 const Vid = props => {
     return (
-        <article>
+        <article onClick={() => props.changeHandler(props.index)} id={props.index} className="Vid">
             <h4>
                 {props.title}
             </h4>

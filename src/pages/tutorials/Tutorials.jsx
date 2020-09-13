@@ -15,7 +15,8 @@ const Tutorials = () => {
     const [descs, setDescs] = useState('');
     const [thumbs, setThumbs] = useState([]);
 	const [videoIds, setVideoIds] = useState([]);
-	const [vidIndex, setVidIndex] = useState(0);
+    const [vidIndex, setVidIndex] = useState(0);
+    const [pagiIndex, setPagiIndex] = useState(0);
 
 	const URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${plId}&key=${key}`;
 
@@ -58,25 +59,33 @@ const Tutorials = () => {
 			// eslint-disable-next-line
 		},[])
 		
-		const changeHandler = (e) => {
+		const selChangeHandler = (e) => {
 			setValue(e.target.value)
 			setVidIndex(e.target.selectedIndex)
-		}
+        }
+        
+        const vidChangeHandler = index => {
+            if (index !== vidIndex) {
+                setVidIndex(index)
+                setValue(titles[index])
+            }
+        }
 
     return (
         <PageTemplate>
             <FeaturedVideo
             video={videoIds[vidIndex]}
             value={value}
-            changeHandler={changeHandler}
+            changeHandler={selChangeHandler}
             title={titles[vidIndex]}
             desc={descs[vidIndex]}
             titles={titles}
             />
             <MoreVideos>
-                <Vid title={titles[vidIndex]} src={thumbs[vidIndex]} desc={descs[vidIndex]} />
-                <Vid title={titles[vidIndex+1]} src={thumbs[vidIndex+1]} desc={descs[vidIndex+1]} />
-                <Vid title={titles[vidIndex+2]} src={thumbs[vidIndex+2]} desc={descs[vidIndex+2]} />
+                {
+                titles.map((el, index) => (
+                    <Vid changeHandler={vidChangeHandler} key={index} index={index} title={el} src={thumbs[pagiIndex+index]} desc={descs[pagiIndex+index]} />
+                ))}    
             </MoreVideos>
         </PageTemplate>
     )

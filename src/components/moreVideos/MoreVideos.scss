@@ -14,15 +14,14 @@
     }
     article {
         grid-area: left;
-        display: grid;
-        grid-template-areas: "img" "title" "desc" "link";
-        grid-template-columns: repeat(3, 1fr);
-        grid-column-gap: 1.5rem;
         &:nth-of-type(2) {
             grid-area: center;
         }
         &:nth-of-type(3) {
             grid-area: right;
+        }
+        &:nth-of-type(n+4) {
+            display: none;
         }
         img {
             grid-area: img;

@@ -1,5 +1,4 @@
 import React from 'react';
-import Vid from '../vid/Vid';
 import './MoreVideos.scss';
 
 const MoreVideos = props => {
