@@ -70,7 +70,8 @@ const Tutorials = () => {
 			setVidIndex(e.target.closest('article').id)
 
         }
-
+        
+        // TODO: Need to account for going below 0 or above length of items brought in
         const prevClickHandler = () => {
             if (vidIndex < 3) {
                 setMoreVids([moreVids[0]-3,moreVids[1]-3,moreVids[2]-3])
@@ -83,6 +84,7 @@ const Tutorials = () => {
             }
         }
 
+    // TODO: Need to account for when there wouldn't be 3 videos showing
     return (
         <PageTemplate>
             <FeaturedVideo
