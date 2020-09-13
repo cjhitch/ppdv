@@ -16,7 +16,7 @@ const Tutorials = () => {
     const [thumbs, setThumbs] = useState([]);
 	const [videoIds, setVideoIds] = useState([]);
     const [vidIndex, setVidIndex] = useState(0);
-    const [pagiIndex, setPagiIndex] = useState(0);
+    const [moreVids, setMoreVids] = useState([0,1,2]);
 
 	const URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${plId}&key=${key}`;
 
@@ -64,22 +64,22 @@ const Tutorials = () => {
 			setVidIndex(e.target.selectedIndex)
         }
         
-        const vidChangeHandler = index => {
-            if (index !== vidIndex) {
-                setVidIndex(index)
-                setValue(titles[index])
-            }
+        const vidChangeHandler = e => {
+            console.log(e.target.closest('article').id)
+			setValue(titles[e.target.closest('article').id])
+			setVidIndex(e.target.closest('article').id)
+
         }
 
         const prevClickHandler = () => {
             if (vidIndex < 3) {
-                setPagiIndex(pagiIndex-3)
+                setMoreVids([moreVids[0]-3,moreVids[1]-3,moreVids[2]-3])
             }
         }
 
         const nextClickHandler = () => {
             if (vidIndex < titles.length){
-                setPagiIndex(pagiIndex+3)
+                setMoreVids([moreVids[0]+3,moreVids[1]+3,moreVids[2]+3])
             }
         }
 
@@ -94,10 +94,9 @@ const Tutorials = () => {
             titles={titles}
             />
             <MoreVideos prevClickHandler={prevClickHandler} nextClickHandler={nextClickHandler} >
-                {
-                titles.map((el, index) => (
-                    <Vid changeHandler={vidChangeHandler} key={index} index={index} title={el} src={thumbs[pagiIndex+index]} desc={descs[pagiIndex+index]} />
-                ))}    
+                <Vid changeHandler={vidChangeHandler} key={moreVids[0]} index={moreVids[0]} title={titles[moreVids[0]]} src={thumbs[moreVids[0]]} desc={descs[moreVids[0]]}/>
+                <Vid changeHandler={vidChangeHandler} key={moreVids[1]} index={moreVids[1]} title={titles[moreVids[1]]} src={thumbs[moreVids[1]]} desc={descs[moreVids[1]]}/>
+                <Vid changeHandler={vidChangeHandler} key={moreVids[2]} index={moreVids[2]} title={titles[moreVids[2]]} src={thumbs[moreVids[2]]} desc={descs[moreVids[2]]}/>
             </MoreVideos>
         </PageTemplate>
     )
