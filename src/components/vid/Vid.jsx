@@ -8,9 +8,6 @@ const Vid = props => {
                 {props.title}
             </h4>
             <img src={props.src} alt={props.alt} />
-            <p>
-                {props.desc}
-            </p>
             <a href={props.link}>
                 Learn More
             </a>
