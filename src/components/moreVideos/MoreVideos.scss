@@ -1,9 +1,12 @@
 .MoreVideos {
-	padding: 7rem 8rem;
+	padding: 7rem 0;
 	background-color: #e4e4e4;
 	display: grid;
-    grid-template-areas: "title title title" "para para para" "left center right";
+    grid-template-areas: "title title title title title" "para para para para para" "lChev left center right rChev";
+    grid-template-columns: 8rem repeat(3, 1fr) 8rem;
     grid-column-gap: 1.5rem;
+    align-items: center;
+    justify-items: center;
     h3 {
         grid-area: title;
         text-align: center;
@@ -11,6 +14,9 @@
     p {
         grid-area: para;
         text-align: center;
+    }
+    svg {
+        font-size: 2rem;
     }
     article {
         grid-area: left;

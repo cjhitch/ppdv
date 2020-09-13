@@ -71,6 +71,18 @@ const Tutorials = () => {
             }
         }
 
+        const prevClickHandler = () => {
+            if (vidIndex < 3) {
+                setPagiIndex(pagiIndex-3)
+            }
+        }
+
+        const nextClickHandler = () => {
+            if (vidIndex < titles.length){
+                setPagiIndex(pagiIndex+3)
+            }
+        }
+
     return (
         <PageTemplate>
             <FeaturedVideo
@@ -81,7 +93,7 @@ const Tutorials = () => {
             desc={descs[vidIndex]}
             titles={titles}
             />
-            <MoreVideos>
+            <MoreVideos prevClickHandler={prevClickHandler} nextClickHandler={nextClickHandler} >
                 {
                 titles.map((el, index) => (
                     <Vid changeHandler={vidChangeHandler} key={index} index={index} title={el} src={thumbs[pagiIndex+index]} desc={descs[pagiIndex+index]} />

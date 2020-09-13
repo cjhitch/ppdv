@@ -1,4 +1,5 @@
 import React from 'react';
+import {FaChevronCircleLeft, FaChevronCircleRight} from 'react-icons/fa';
 import './MoreVideos.scss';
 
 const MoreVideos = props => {
@@ -10,7 +11,9 @@ const MoreVideos = props => {
             <p>
                 Select a new video from the list
             </p>
+            <FaChevronCircleLeft onClick={props.prevClickHandler}/>
             {props.children}
+            <FaChevronCircleRight onClick={props.nextClickHandler}/>
         </section>
     )
 }
