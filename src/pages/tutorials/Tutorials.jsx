@@ -59,22 +59,14 @@ const Tutorials = () => {
 
     return (
         <PageTemplate >
-            <select
+            <FeaturedVideo
+            video={videoIds[vidIndex]}
             value={value}
-            onChange={(e) => changeHandler(e)}
-            name=""
-            id="">
-                {titles.map((el, index) => (
-                    <option key={index}>{el}</option>
-                ))}
-            </select>
-            <h2>
-                {titles[vidIndex]}
-            </h2>
-            <p>
-                {descs[vidIndex]}
-            </p>
-            <FeaturedVideo video={videoIds[vidIndex]}/>
+            changeHandler={changeHandler}
+            title={titles[vidIndex]}
+            desc={descs[vidIndex]}
+            titles={titles}
+            />
         </PageTemplate>
     )
 }
