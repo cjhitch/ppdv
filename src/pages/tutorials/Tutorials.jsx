@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import PageTemplate from '../../components/pageTemplate/PageTemplate'
 import FeaturedVideo from '../../components/featuredVideo/FeaturedVideo';
+import MoreVideos from '../../components/moreVideos/MoreVideos';
+import Vid from '../../components/vid/Vid';
 import './Tutorials.scss';
 
 const Tutorials = () => {
@@ -11,6 +13,7 @@ const Tutorials = () => {
 	const [value, setValue] = useState('');
     const [titles, setTitles] = useState([]);
     const [descs, setDescs] = useState('');
+    const [thumbs, setThumbs] = useState([]);
 	const [videoIds, setVideoIds] = useState([]);
 	const [vidIndex, setVidIndex] = useState(0);
 
@@ -28,21 +31,24 @@ const Tutorials = () => {
 		useEffect(()=>{
             asyncFetch()
 			.then(data => {
-				console.log('Request succeeded with JSON response');
+				console.log('Request succeeded with JSON response', data);
                 // array to for push in data
                 const dataTitles = [];
                 const dataDescs = [];
                 const dataIds = [];
+                const dataThumbs = [];
                 data.items.forEach(el => {
                     // push to array
                     dataTitles.push(el.snippet.title)
                     dataDescs.push(el.snippet.description)
                     dataIds.push(el.snippet.resourceId.videoId)
+                    dataThumbs.push(el.snippet.thumbnails.maxres.url)
                 })
                 // set state with array data
                 setTitles(dataTitles);
                 setDescs(dataDescs);
                 setVideoIds(dataIds);
+                setThumbs(dataThumbs)
                 setValue(dataTitles[0])
 				}
 			)
@@ -58,7 +64,7 @@ const Tutorials = () => {
 		}
 
     return (
-        <PageTemplate >
+        <PageTemplate>
             <FeaturedVideo
             video={videoIds[vidIndex]}
             value={value}
@@ -67,6 +73,11 @@ const Tutorials = () => {
             desc={descs[vidIndex]}
             titles={titles}
             />
+            <MoreVideos>
+                <Vid title={titles[vidIndex]} src={thumbs[vidIndex]} desc={descs[vidIndex]} />
+                <Vid title={titles[vidIndex+1]} src={thumbs[vidIndex+1]} desc={descs[vidIndex+1]} />
+                <Vid title={titles[vidIndex+2]} src={thumbs[vidIndex+2]} desc={descs[vidIndex+2]} />
+            </MoreVideos>
         </PageTemplate>
     )
 }
