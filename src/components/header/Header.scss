@@ -1,0 +1,21 @@
+.Header {
+    display: grid;
+    grid-template-columns: 9.5rem auto 8.75rem;
+    padding: .5rem 1rem .25rem 1rem;
+    justify-items: center;
+    position: relative;
+    z-index: 100;
+    svg {
+        width: 9.5rem;
+    }
+    nav {
+        ul {
+            list-style: none;
+            li {
+                display: inline-block;
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+        }
+    }
+}

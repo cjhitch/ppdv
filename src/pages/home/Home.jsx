@@ -1,9 +1,12 @@
 import React from 'react';
+import PageTemplate from '../../components/pageTemplate/PageTemplate';
 import './Home.scss';
 
 const Home = () => {
     return (
-        <h1>Home</h1>
+        <PageTemplate>
+            <h1>GO TO TUTORIALS FOR THE NEW APP</h1>
+        </PageTemplate>
     )
 }
 

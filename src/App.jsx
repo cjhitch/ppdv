@@ -14,8 +14,7 @@ const App = () => {
 					<Tutorials />
 				</Route>
 				<Route path="/">
-					<Tutorials />
-					{/* <Home /> */}
+					<Home />
 				</Route>
 			</Switch>
 		</Router>

@@ -1,0 +1,32 @@
+.Hero {
+    text-align: center;
+    background-image: url('./hero.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    margin-top: -4.5rem;
+    padding: 17.5rem 0 9rem 0;
+    position: relative;
+    h1 {
+        z-index: 10;
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+    p {
+        z-index: 10;
+        position: relative;
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    button {
+        z-index: 10;
+        position: relative;
+    }
+    div {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,.4);
+    }
+}

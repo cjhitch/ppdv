@@ -3,7 +3,20 @@ import './Hero.scss';
 
 const Hero = () => {
     return (
-        <h1>Hero</h1>
+        <section className="Hero">
+            <h1>
+                Learn To Code!
+            </h1>
+            <p>
+                Have you ever wanted to learn React?<br />
+                Check out the free tutorials written by me<br />
+                If you have questions please let me know
+            </p>
+            <button>
+                Contact Me
+            </button>
+            <div className="overlay"></div>
+        </section>
     )
 }
 
