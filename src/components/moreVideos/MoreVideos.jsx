@@ -1,5 +1,7 @@
 import React from 'react';
-import {FaChevronCircleLeft, FaChevronCircleRight} from 'react-icons/fa';
+import { faCircle  } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight  } from '@fortawesome/pro-light-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './MoreVideos.scss';
 
 const MoreVideos = props => {
@@ -11,9 +13,15 @@ const MoreVideos = props => {
             <p>
                 Select a new video from the list
             </p>
-            <FaChevronCircleLeft onClick={props.prevClickHandler}/>
+            <span className="fa-layers fa-fw" onClick={props.prevClickHandler}>
+                <FontAwesomeIcon className="circle-bg" icon={faCircle} size="2x" />
+                <FontAwesomeIcon icon={faAngleLeft} size="1x" />
+            </span>
             {props.children}
-            <FaChevronCircleRight onClick={props.nextClickHandler}/>
+            <span className="fa-layers fa-fw" onClick={props.nextClickHandler}>
+                <FontAwesomeIcon className="circle-bg" icon={faCircle} size="2x" />
+                <FontAwesomeIcon icon={faAngleRight} size="1x" />
+            </span>
         </section>
     )
 }
