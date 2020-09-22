@@ -1,12 +1,16 @@
 .Header {
     display: grid;
-    grid-template-columns: 9.5rem auto 8.75rem;
+    align-items: center;
+    grid-template-columns: 9.75rem auto 11.25rem;
     padding: .5rem 1rem .25rem 1rem;
     justify-items: center;
     position: relative;
     z-index: 100;
     svg {
         width: 9.5rem;
+    }
+    button {
+        height: max-content;
     }
     nav {
         ul {

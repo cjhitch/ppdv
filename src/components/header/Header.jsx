@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactComponent as Logo } from './logo-dark.svg';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.scss';
 
 const Header = () => {
@@ -31,7 +31,7 @@ const Header = () => {
                     </li>
                 </ul>
             </nav>
-            <button>Subscribe</button>
+            <button className="outline">Subscribe</button>
         </header>
     )
 }

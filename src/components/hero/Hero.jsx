@@ -12,7 +12,7 @@ const Hero = () => {
                 Check out the free tutorials written by me<br />
                 If you have questions please let me know
             </p>
-            <button>
+            <button className="large">
                 Contact Me
             </button>
             <div className="overlay"></div>
