@@ -1,5 +1,7 @@
 import React from 'react';
 import './FeaturedVideo.scss';
+import { faAngleDown  } from '@fortawesome/pro-light-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FeaturedVideo = props => {
     return (
@@ -15,6 +17,7 @@ const FeaturedVideo = props => {
                         <option key={index}>{el}</option>
                     ))}
                 </select>
+                <FontAwesomeIcon className="select-dropdown-icon" icon={faAngleDown} />
                 <h2>
                     {props.title}
                 </h2>
