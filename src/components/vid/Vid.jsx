@@ -8,8 +8,8 @@ const Vid = props => {
                 {props.title}
             </h4>
             <img src={props.src} alt={props.alt} />
-            <a href={props.link}>
-                Learn More
+            <a rel="noopener noreferrer" target="_blank" href={`https://www.youtube.com/watch?v=${props.link}&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU`}>
+                Watch on YouTube
             </a>
         </article>
     )

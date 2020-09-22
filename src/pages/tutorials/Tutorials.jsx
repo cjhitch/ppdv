@@ -17,6 +17,8 @@ const Tutorials = () => {
 	const [videoIds, setVideoIds] = useState([]);
     const [vidIndex, setVidIndex] = useState(0);
     const [moreVids, setMoreVids] = useState([0,1,2]);
+    const [activeBub, setActiveBub] = useState(Math.floor(moreVids[0]/3));
+    const bubs = Math.ceil(titles.length/3)
 
 	const URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${plId}&key=${key}`;
 
@@ -57,34 +59,38 @@ const Tutorials = () => {
 			.catch(err => console.log(`Fetch Error: ${err}`));
 			// intentionally empty - this code should only ever run once at page load
 			// eslint-disable-next-line
-		},[])
+        },[])
+        
+        // useEffect(() => {
+        //     setActiveBub()
+        // },[moreVids])
 		
 		const selChangeHandler = (e) => {
-			setValue(e.target.value)
-			setVidIndex(e.target.selectedIndex)
+            setValue(e.target.value)
+            setVidIndex(e.target.selectedIndex)
+            const page = 3*(Math.ceil((e.target.selectedIndex+1)/3))
+            console.log(page)
+            setMoreVids([page-3, page-2, page-1])
+            console.log(moreVids)
         }
         
         const vidChangeHandler = e => {
-            console.log(e.target.closest('article').id)
 			setValue(titles[e.target.closest('article').id])
 			setVidIndex(e.target.closest('article').id)
-
         }
         
-        // TODO: Need to account for going below 0 or above length of items brought in
         const prevClickHandler = () => {
-            if (vidIndex < 3) {
+            if (moreVids[2] > 2) {
                 setMoreVids([moreVids[0]-3,moreVids[1]-3,moreVids[2]-3])
             }
         }
-
+        
         const nextClickHandler = () => {
-            if (vidIndex < titles.length){
+            if (moreVids[0]+3 < titles.length){
                 setMoreVids([moreVids[0]+3,moreVids[1]+3,moreVids[2]+3])
             }
         }
 
-    // TODO: Need to account for when there wouldn't be 3 videos showing
     return (
         <PageTemplate>
             <FeaturedVideo
@@ -95,10 +101,15 @@ const Tutorials = () => {
             desc={descs[vidIndex]}
             titles={titles}
             />
-            <MoreVideos prevClickHandler={prevClickHandler} nextClickHandler={nextClickHandler} >
-                <Vid changeHandler={vidChangeHandler} key={moreVids[0]} index={moreVids[0]} title={titles[moreVids[0]]} src={thumbs[moreVids[0]]} desc={descs[moreVids[0]]}/>
-                <Vid changeHandler={vidChangeHandler} key={moreVids[1]} index={moreVids[1]} title={titles[moreVids[1]]} src={thumbs[moreVids[1]]} desc={descs[moreVids[1]]}/>
-                <Vid changeHandler={vidChangeHandler} key={moreVids[2]} index={moreVids[2]} title={titles[moreVids[2]]} src={thumbs[moreVids[2]]} desc={descs[moreVids[2]]}/>
+            <MoreVideos prevClickHandler={prevClickHandler} nextClickHandler={nextClickHandler} 
+            pagi={bubs} active={activeBub}>
+                <Vid changeHandler={vidChangeHandler} key={moreVids[0]} index={moreVids[0]} title={titles[moreVids[0]]} src={thumbs[moreVids[0]]} desc={descs[moreVids[0]]} link={videoIds[moreVids[0]]} />
+                { titles[moreVids[1]] === undefined ? '' :
+                <Vid changeHandler={vidChangeHandler} key={moreVids[1]} index={moreVids[1]} title={titles[moreVids[1]]} src={thumbs[moreVids[1]]} desc={descs[moreVids[1]]} link={videoIds[moreVids[0]]} />
+                }
+                { titles[moreVids[2]] === undefined ? '' :
+                <Vid changeHandler={vidChangeHandler} key={moreVids[2]} index={moreVids[2]} title={titles[moreVids[2]]} src={thumbs[moreVids[2]]} desc={descs[moreVids[2]]} link={videoIds[moreVids[0]]} />
+                }
             </MoreVideos>
         </PageTemplate>
     )

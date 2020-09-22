@@ -26,7 +26,7 @@ const FeaturedVideo = props => {
                 </p>
             </div>
             <span>
-                <iframe title="Learning Python" className="" src={`https://www.youtube-nocookie.com/embed/${props.video}?rel=0`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowFullScreen></iframe>
+                <iframe title="Learning Python" className="" src={`https://www.youtube-nocookie.com/embed/${props.video}?rel=0`} frameBorder="0" allowFullScreen></iframe>
             </span>
         </section>
     )

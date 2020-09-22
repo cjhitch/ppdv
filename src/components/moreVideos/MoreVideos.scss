@@ -4,10 +4,9 @@
 	padding: 7rem 0;
 	background-color: #e4e4e4;
 	display: grid;
-    grid-template-areas: "title title title title title" "para para para para para" "lChev left center right rChev";
+    grid-template-areas: "title title title title title" "para para para para para" "lChev left center right rChev" "pagi pagi pagi pagi pagi";
     grid-template-columns: 8rem repeat(3, 1fr) 8rem;
     grid-column-gap: 1.5rem;
-    align-items: center;
     justify-items: center;
     h3 {
         grid-area: title;
@@ -25,12 +24,18 @@
     }
     a {
         color: $secondary;
+        align-self: end;
     }
     span {
         width: 100%;
         display: flex;
         justify-content: center;
         cursor: pointer;
+        align-self: center;
+        grid-area: lChev;
+        &:nth-of-type(2) {
+            grid-area: rChev;
+        }
         &:hover {
             svg {
                 transition: all .25s ease;
