@@ -17,7 +17,7 @@ const MoreVideos = props => {
                 More Videos
             </h3>
             <p>
-            Check out the other videos here. Each video, if done in order, <br />will take you from beginning step all the way to being able to write python on your own.
+            Check out the other videos here. Each video, if done in order, will take you from beginning step all the way to being able to write python on your own.
             </p>
             <span className="fa-layers fa-fw" onClick={props.prevClickHandler}>
                 <FontAwesomeIcon className="circle-bg" icon={faCircle} size="2x" />

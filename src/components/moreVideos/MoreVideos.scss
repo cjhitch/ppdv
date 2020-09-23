@@ -8,6 +8,18 @@
     grid-template-columns: 8rem repeat(3, 1fr) 8rem;
     grid-column-gap: 1.5rem;
     justify-items: center;
+    @media (max-width: 1023px) {
+        padding: 3rem 0;
+        grid-template-areas: 
+        "title title title"
+        "para para para"
+        "lChev left rChev"
+        "lChev center rChev"
+        "lChev right rChev"
+        "pagi pagi pagi"
+        ;
+        grid-template-columns: 3.5rem 1fr 3.5rem;
+    }
     h3 {
         grid-area: title;
         text-align: center;
@@ -18,9 +30,17 @@
         grid-area: para;
         text-align: center;
         margin-bottom: 4rem;
+        max-width: 48rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     h4 {
         font-weight: 400;
+        @media (max-width: 1023px) {
+            margin: 0;
+            margin-top: -2rem;
+            padding: 0;
+        }
     }
     a {
         color: $secondary;
