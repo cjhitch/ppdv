@@ -1,3 +1,5 @@
+@import '../../assets/scss/colors';
+
 .Header {
     display: grid;
     align-items: center;
@@ -6,13 +8,42 @@
     justify-items: center;
     position: relative;
     z-index: 100;
+    @media (max-width:1023px) {
+        grid-template-columns: 1fr 1fr;
+        padding: 1rem 1.25rem;
+        background-color: $white;
+        justify-items: unset;
+        border-bottom-left-radius: .5rem;
+        border-bottom-right-radius: .5rem;
+    }
     svg {
         width: 9.5rem;
+        &.dark {
+            @media screen and (max-width: 1023px) {
+                display: none;
+            }
+        }
+        &.light {
+            @media (min-width: 1024px) {
+                display: none;
+            }
+        }
     }
     button {
         height: max-content;
+        @media screen and (max-width: 1023px) {
+            display: none;
+        }
+    }
+    span {
+        cursor: pointer;
     }
     nav {
+        &.desk {
+            @media screen and (max-width: 1023px) {
+                display: none;
+            }
+        }
         ul {
             list-style: none;
             margin: 0;

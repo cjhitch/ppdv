@@ -4,19 +4,33 @@
     background-size: cover;
     background-position: center;
     color: #fff;
-    margin-top: -4.5rem;
+    margin-top: -6.5rem;
     padding: 17.5rem 0 9rem 0;
     position: relative;
+    @media (max-width:1023px) {
+        margin-top: -1rem;
+        padding-top: 2.25rem;
+    }
     h1 {
         z-index: 10;
         position: relative;
         margin-bottom: 1.5rem;
+        @media (max-width:1023px) {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
     }
     p {
         z-index: 10;
         position: relative;
         font-size: 1.25rem;
+        margin: 0 auto;
         margin-bottom: 1.5rem;
+        max-width: 26.5rem;
+        @media (max-width:1023px) {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
     }
     button {
         z-index: 10;

@@ -8,8 +8,8 @@ const Hero = () => {
                 Learn To Code!
             </h1>
             <p>
-                Have you ever wanted to learn React?<br />
-                Check out the free tutorials written by me<br />
+                Have you ever wanted to learn React?
+                Check out the free tutorials written by me
                 If you have questions please let me know
             </p>
             <button className="large">
