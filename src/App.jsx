@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {BrowserRouter as Router, Switch, Route,} from "react-router-dom";
+import React from 'react';
+import {HashRouter as Router, Switch, Route,} from "react-router-dom";
 import Home from './pages/home/Home';
 import Tutorials from './pages/tutorials/Tutorials';
 import './App.scss';
