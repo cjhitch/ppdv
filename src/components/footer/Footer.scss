@@ -1,0 +1,79 @@
+@import '../../assets/scss/colors';
+
+.Footer {
+    display: grid;
+    grid-template-areas: " . upper . " " lower lower lower ";
+    grid-template-columns: 1fr minmax(min-content, 75rem) 1fr;
+    section {
+        &.upper-footer {
+            display: grid;
+            grid-area: upper;
+            grid-template-areas: "title logo nav1 nav2 . news";
+            grid-template-columns: 5rem 4rem 8.75rem auto 1fr 22.5rem;
+            grid-column-gap: 1rem;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            h5 {
+                grid-area: title;
+                color: $dark_2
+            }
+            svg {
+                grid-area: logo;
+            }
+            nav {
+                grid-area: nav1;
+                &:nth-of-type(2) {
+                    grid-area: nav2;
+                }
+                ul {
+                    list-style: none;
+                    li {
+                        margin-bottom: .75rem;
+                        a {
+                            text-decoration: none;
+                            color: $dark_3;
+                            transition: .25s ease all;
+                            &:hover {
+                                color: $secondary;
+                                transition: .25s ease all;
+                            }
+                        }
+                    }
+                }
+            }
+            section {
+                grid-area: news;
+                button {
+                    margin-left: .5rem;
+                }
+            }
+        }
+        &.lower-footer {
+            display: grid;
+            grid-area: lower;
+            grid-template-areas: " . cont . ";
+            grid-template-columns: 1fr minmax(min-content, 75rem) 1fr;
+            div {
+                grid-area: cont;
+                display: flex;
+                justify-content: space-between;
+                a {
+                    color: $dark_2;
+                    transition: .25s ease all;
+                    margin-left: 1.75rem;
+                    &:hover {
+                        color: $secondary;
+                        transition: .25s ease all;
+                    }
+                }
+            }
+        }
+    }
+    svg {
+        max-width: 4rem;
+    }
+    .lower-footer {
+        padding: 2rem;
+        background-color: $light_1;
+    }
+}

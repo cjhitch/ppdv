@@ -5,10 +5,19 @@ button, .button {
     color: $white;
     font-size: inherit;
     padding: .5rem 1.125rem;
+    cursor: pointer;
+    transition: .25s ease all;
+    &:hover {
+        background-color: darken($primary, 20);
+        transition: .25s ease all;
+    }
     &.outline {
         background-color: transparent;
         padding-left: 2rem;
         padding-right: 2rem;
+        &:hover {
+            background-color: $primary;
+        }
     }
     &.large {
         padding: 1.125rem 3.5rem;
@@ -16,5 +25,13 @@ button, .button {
     &.round {
         padding: .5rem;
         border-radius: 1.25rem;
+    }
+    &.secondary {
+        background-color: $secondary;
+        border-color: $secondary;
+        &:hover {
+            background-color: transparent;
+            color: $dark_2;
+        }
     }
 }

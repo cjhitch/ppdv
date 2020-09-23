@@ -1,4 +1,4 @@
-select {
+select, input {
 	border: 0;
 	border-bottom: 1px solid $gray;
 	max-width: 18rem;
@@ -7,6 +7,7 @@ select {
 	appearance: none;
     padding-right: 1.5rem;
     background-color: transparent;
+    font-size: 1rem;
 }
 .select-dropdown-icon {
     color: $secondary;
