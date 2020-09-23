@@ -2,7 +2,7 @@
   "name": "poc",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://cjhitch.github.io/",
+  "homepage" : "https://cjhitch.github.io/ppdv",
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.14.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",

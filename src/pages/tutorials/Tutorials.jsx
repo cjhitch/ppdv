@@ -7,7 +7,7 @@ import './Tutorials.scss';
 
 const Tutorials = () => {
 
-    const key = 'AIzaSyA54SI8UXryZuA4xbFhu6YzCXYnSGCPFuU';
+    const key = 'AIzaSyAMHI33eUcYvtAPUEr8vEHvEYVKqGjrysY';
 	const plId = ['PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU'];
 
 	const [value, setValue] = useState('');
