@@ -37,6 +37,11 @@
     }
     span {
         cursor: pointer;
+        &.desk {
+            @media screen and (min-width: 1024px) {
+                display: none;
+            }
+        }
     }
     nav {
         &.desk {

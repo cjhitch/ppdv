@@ -4,6 +4,14 @@
     display: grid;
     grid-template-areas: " . upper . " " lower lower lower ";
     grid-template-columns: 1fr minmax(min-content, 75rem) 1fr;
+    @media (max-width: 1023px) {
+        background-color: $dark_3;
+        color: $white;
+        input {
+            border-color: $white;
+            color: $white;
+        }
+    }
     section {
         &.upper-footer {
             display: grid;
@@ -13,12 +21,29 @@
             grid-column-gap: 1rem;
             align-items: center;
             padding-bottom: 1.5rem;
+            @media (max-width: 1023px) {
+                grid-template-areas: 
+                "news news"
+                "nav1 nav2"
+                "title title"
+                "logo logo"
+                ;
+                grid-template-columns: 1fr 2fr;
+            }
             h5 {
                 grid-area: title;
-                color: $dark_2
+                color: $dark_2;
+                @media (max-width: 1023px) {
+                    text-align: center;
+                    color: $white;
+                }
             }
             svg {
                 grid-area: logo;
+                @media (max-width: 1023px) {
+                    justify-self: center;
+                    margin-bottom: 6rem;
+                }
             }
             nav {
                 grid-area: nav1;
@@ -27,12 +52,18 @@
                 }
                 ul {
                     list-style: none;
+                    @media (max-width: 1023px) {
+                        padding-left: 2rem;
+                    }
                     li {
                         margin-bottom: .75rem;
                         a {
                             text-decoration: none;
                             color: $dark_3;
                             transition: .25s ease all;
+                            @media (max-width: 1023px) {
+                                color: $white;
+                            }
                             &:hover {
                                 color: $secondary;
                                 transition: .25s ease all;
@@ -47,23 +78,59 @@
                     margin-left: .5rem;
                 }
             }
+            h6 {
+                @media (max-width: 1023px) {
+                    text-align: center;
+                }
+            }
+            p {
+                @media (max-width: 1023px) {
+                    text-align: center;
+                }
+            }
+            form {
+                @media (max-width: 1023px) {
+                    padding: .75rem;
+                }
+            }
         }
         &.lower-footer {
             display: grid;
             grid-area: lower;
             grid-template-areas: " . cont . ";
             grid-template-columns: 1fr minmax(min-content, 75rem) 1fr;
+            color: $gray;
+            text-align: center;
+            @media (max-width: 1023px) {
+                grid-template-columns: 1fr;
+                grid-template-areas: "cont";
+            }
             div {
                 grid-area: cont;
                 display: flex;
                 justify-content: space-between;
-                a {
-                    color: $dark_2;
-                    transition: .25s ease all;
-                    margin-left: 1.75rem;
-                    &:hover {
-                        color: $secondary;
+                @media (max-width: 1023px) {
+                    flex-direction: column-reverse;
+                }
+                span {
+                    @media (max-width: 1023px) {
+                        display: flex;
+                        justify-content: center;
+                        margin-bottom: 2rem;
+                    }
+                    a {
+                        color: $dark_2;
                         transition: .25s ease all;
+                        margin-left: 1.75rem;
+                        @media (max-width: 1023px) {
+                            &:first-of-type {
+                                margin-left: 0;
+                            }
+                        }
+                        &:hover {
+                            color: $secondary;
+                            transition: .25s ease all;
+                        }
                     }
                 }
             }

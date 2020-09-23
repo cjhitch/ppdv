@@ -43,7 +43,7 @@ const Header = () => {
                 </ul>
             </nav>
             <button className="outline">Subscribe</button>
-            <span onClick={clickHandler}>
+            <span className="desk" onClick={clickHandler}>
                 <FontAwesomeIcon icon={faBars} size="2x" />
             </span>
             <LogoMob className="light"/>
