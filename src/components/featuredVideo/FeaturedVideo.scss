@@ -6,6 +6,16 @@
     "title vid"
     "desc vid"
     ;
+    @media (max-width: 1023px) {
+        grid-template-areas:
+        "title"
+        "sel"
+        "vid"
+        "desc"
+        ;
+        grid-template-columns: 1fr;
+        padding: 3rem 1rem;
+    }
     grid-template-columns: 2fr 3fr;
     grid-column-gap: 4.5rem;
     padding: 7rem 8rem;
@@ -16,11 +26,19 @@
         select {
             margin-bottom: 3rem;
             font-size: 1rem;
+            @media (max-width: 1023px) {
+                display: inline-block;
+                margin: 0 auto;
+                margin-bottom: 3rem;
+            }
         }
     }
     h2 {
         grid-area: title;
         margin-bottom: 2rem;
+        @media (max-width: 1023px) {
+            text-align: center;
+        }
     }
     p {
         grid-area: desc;
