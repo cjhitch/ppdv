@@ -7,7 +7,7 @@ import './Tutorials.scss';
 
 const Tutorials = () => {
 
-    const key = 'AIzaSyAMHI33eUcYvtAPUEr8vEHvEYVKqGjrysY';
+    const key = 'AIzaSyA54SI8UXryZuA4xbFhu6YzCXYnSGCPFuU';
 	const plId = ['PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU'];
 
 	const [value, setValue] = useState('');
@@ -61,34 +61,43 @@ const Tutorials = () => {
 			// eslint-disable-next-line
         },[])
         
-        // useEffect(() => {
-        //     setActiveBub()
-        // },[moreVids])
-		
+        // update active bubble whenever more vids changes
+        useEffect(() => {
+            setActiveBub(Math.floor(moreVids[0]/3))
+        },[moreVids])
+        
+        // when a select is selected - update the featured vid - update the more vids array
 		const selChangeHandler = (e) => {
             setValue(e.target.value)
             setVidIndex(e.target.selectedIndex)
             const page = 3*(Math.ceil((e.target.selectedIndex+1)/3))
-            console.log(page)
             setMoreVids([page-3, page-2, page-1])
-            console.log(moreVids)
         }
         
+        // handler for when a more videos link is clicked on
         const vidChangeHandler = e => {
 			setValue(titles[e.target.closest('article').id])
 			setVidIndex(e.target.closest('article').id)
         }
         
+        // prev link handler
         const prevClickHandler = () => {
             if (moreVids[2] > 2) {
                 setMoreVids([moreVids[0]-3,moreVids[1]-3,moreVids[2]-3])
             }
         }
         
+        // next link handler
         const nextClickHandler = () => {
             if (moreVids[0]+3 < titles.length){
                 setMoreVids([moreVids[0]+3,moreVids[1]+3,moreVids[2]+3])
             }
+        }
+
+        // handler for when one of the pagination links are clicked
+        const pagiHandler = i => {
+            const page = 3*i
+            setMoreVids([page-3, page-2, page-1])
         }
 
     return (
@@ -102,7 +111,7 @@ const Tutorials = () => {
             titles={titles}
             />
             <MoreVideos prevClickHandler={prevClickHandler} nextClickHandler={nextClickHandler} 
-            pagi={bubs} active={activeBub}>
+            pagi={bubs} active={activeBub} pagiHandler={pagiHandler}>
                 <Vid changeHandler={vidChangeHandler} key={moreVids[0]} index={moreVids[0]} title={titles[moreVids[0]]} src={thumbs[moreVids[0]]} desc={descs[moreVids[0]]} link={videoIds[moreVids[0]]} />
                 { titles[moreVids[1]] === undefined ? '' :
                 <Vid changeHandler={vidChangeHandler} key={moreVids[1]} index={moreVids[1]} title={titles[moreVids[1]]} src={thumbs[moreVids[1]]} desc={descs[moreVids[1]]} link={videoIds[moreVids[0]]} />

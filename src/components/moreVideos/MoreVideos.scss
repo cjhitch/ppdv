@@ -55,30 +55,19 @@
             }
         }
     }
-    article {
-        grid-area: left;
-        &:nth-of-type(2) {
-            grid-area: center;
-        }
-        &:nth-of-type(3) {
-            grid-area: right;
-        }
-        &:nth-of-type(n+4) {
-            display: none;
-        }
-        img {
-            grid-area: img;
-            max-width: 100%;
-        }
-        h4 {
-            grid-area: title;
-        }
-        p {
-            grid-area: desc;
-            text-align: left;
-        }
-        a {
-            grid-area: link;
+    div {
+        grid-area: pagi;
+        margin-top: 2rem;
+        span {
+            display: inline;
+            margin-left: .25rem;
+            margin-right: .25rem;
+            svg {
+                color: $gray;
+                &.active {
+                    color: $primary;
+                }
+            }
         }
     }
 }

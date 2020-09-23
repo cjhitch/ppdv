@@ -5,6 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './MoreVideos.scss';
 
 const MoreVideos = props => {
+    const pages = [];
+
+    for (let index = 0; index < props.pagi; index++) {
+        pages.push(index);        
+    }
 
     return (
         <section className="MoreVideos">
@@ -24,7 +29,13 @@ const MoreVideos = props => {
                 <FontAwesomeIcon icon={faAngleRight} size="1x" />
             </span>
             <div>
-                {props.pagi}
+                {pages.map( (el, index) => {
+                    if (index === props.active) {
+                        return <span key={index} onClick={() => props.pagiHandler(index+1)}><FontAwesomeIcon className="active" icon={faCircle}/></span>
+                    } else {
+                        return <span key={index} onClick={() => props.pagiHandler(index+1)}><FontAwesomeIcon icon={faCircleLine} /></span>
+                    }
+                })}
             </div>
         </section>
     )
