@@ -21,32 +21,32 @@ const Header = () => {
             <nav className="desk">
                 <ul>
                     <li>
-                        <NavLink to="/" activeClassName="selected">
+                        <NavLink to="/" className="z-line" activeClassName="selected">
                             Home
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/tutorials">
+                        <NavLink to="/tutorials" className="z-line">
                             Tutorials
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/about">
+                        <NavLink to="/about" className="z-line">
                             About
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/contact">
+                        <NavLink to="/contact" className="z-line">
                             Contact
                         </NavLink>
                     </li>
                 </ul>
             </nav>
-            <button className="outline">Subscribe</button>
+            <button className="outline z-line">Subscribe</button>
             <span className="desk" onClick={clickHandler}>
                 <FontAwesomeIcon icon={faBars} size="2x" />
             </span>
-            <LogoMob className="light"/>
+            <LogoMob className="light z-line"/>
             <NavModal clickHandler={clickHandler} active={active}/>
         </header>
     )

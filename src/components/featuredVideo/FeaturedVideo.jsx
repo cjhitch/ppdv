@@ -1,12 +1,12 @@
 import React from 'react';
-import './FeaturedVideo.scss';
 import { faAngleDown  } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import './FeaturedVideo.scss';
 
 const FeaturedVideo = props => {
     return (
         <section className="FeaturedVideo">
-            <span className="select">
+            <span className="select z-line">
                 <select
                 value={props.value}
                 onChange={(e) => props.changeHandler(e)}
@@ -17,15 +17,15 @@ const FeaturedVideo = props => {
                         <option key={index}>{el}</option>
                     ))}
                 </select>
-                <FontAwesomeIcon className="select-dropdown-icon" icon={faAngleDown} />
+                <FontAwesomeIcon className="select-dropdown-icon z-line" icon={faAngleDown} />
             </span>
-            <h2>
+            <h2 className="z-line">
                 {props.title}
             </h2>
-            <p>
+            <p className="z-line">
                 {props.desc}
             </p>
-            <span className="video">
+            <span className="video z-line">
                 <iframe title="Learning Python" className="" src={`https://www.youtube-nocookie.com/embed/${props.video}?rel=0`} frameBorder="0" allowFullScreen></iframe>
             </span>
         </section>

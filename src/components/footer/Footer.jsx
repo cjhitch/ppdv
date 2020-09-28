@@ -16,22 +16,22 @@ const Footer = () => {
                 <nav>
                     <ul>
                         <li>
-                            <NavLink to="/" activeClassName="selected">
+                            <NavLink to="/" className="z-line" activeClassName="selected">
                                 Home
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/tutorials">
+                            <NavLink to="/tutorials" className="z-line">
                                 Tutorials
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/about">
+                            <NavLink to="/about" className="z-line">
                                 About
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/contact">
+                            <NavLink to="/contact" className="z-line">
                                 Contact
                             </NavLink>
                         </li>
@@ -40,35 +40,35 @@ const Footer = () => {
                 <nav>
                     <ul>
                         <li>
-                            <NavLink to="/" activeClassName="selected">
+                            <NavLink to="/" className="z-line" activeClassName="selected">
                                 Blog
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/tutorials">
+                            <NavLink to="/tutorials" className="z-line">
                                 Terms & Conditions
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/about">
+                            <NavLink to="/about" className="z-line">
                                 Privacy Policy
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/contact">
+                            <NavLink to="/contact" className="z-line">
                                 Sitemap
                             </NavLink>
                         </li>
                     </ul>
                 </nav>
                 <section>
-                    <h6 className="h5">
+                    <h6 className="h5 z-line">
                         Weekly Newsletter
                     </h6>
-                    <p>
+                    <p className="z-line">
                         Get new updates directly to your inbox.
                     </p>
-                    <form>
+                    <form className="z-line">
                         <input type="text" placeholder="your@email.com"/>
                         <button className="round secondary" type="submit">Subscribe</button>
                     </form>

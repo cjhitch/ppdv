@@ -37,6 +37,11 @@ h6, .h6 {
   font-size: 1.125rem;
 }
 
+.z-line {
+  position: relative;
+	z-index: 3;
+}
+
 @import './assets/scss/colors';
 @import './assets/scss/button';
 @import './assets/scss/formControls';

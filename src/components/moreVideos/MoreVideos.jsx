@@ -13,22 +13,22 @@ const MoreVideos = props => {
 
     return (
         <section className="MoreVideos">
-            <h3>
+            <h3 className="z-line">
                 More Videos
             </h3>
-            <p>
+            <p className="z-line">
             Check out the other videos here. Each video, if done in order, will take you from beginning step all the way to being able to write python on your own.
             </p>
-            <span className="fa-layers fa-fw" onClick={props.prevClickHandler}>
+            <span className="fa-layers fa-fw z-line" onClick={props.prevClickHandler}>
                 <FontAwesomeIcon className="circle-bg" icon={faCircle} size="2x" />
                 <FontAwesomeIcon icon={faAngleLeft} size="1x" />
             </span>
             {props.children}
-            <span className="fa-layers fa-fw" onClick={props.nextClickHandler}>
+            <span className="fa-layers fa-fw z-line" onClick={props.nextClickHandler}>
                 <FontAwesomeIcon className="circle-bg" icon={faCircle} size="2x" />
                 <FontAwesomeIcon icon={faAngleRight} size="1x" />
             </span>
-            <div>
+            <div className="z-line">
                 {pages.map( (el, index) => {
                     if (index === props.active) {
                         return <span key={index} onClick={() => props.pagiHandler(index+1)}><FontAwesomeIcon className="active" icon={faCircle}/></span>
