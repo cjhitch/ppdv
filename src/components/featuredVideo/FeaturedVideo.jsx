@@ -1,6 +1,6 @@
 import React from 'react';
 import './FeaturedVideo.scss';
-import { faAngleDown  } from '@fortawesome/pro-light-svg-icons';
+import { faAngleDown  } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FeaturedVideo = props => {

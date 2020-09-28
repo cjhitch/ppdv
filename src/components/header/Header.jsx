@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ReactComponent as Logo } from './logo-dark.svg';
 import { ReactComponent as LogoMob } from './logo.svg';
-import { faBars } from '@fortawesome/pro-light-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 import NavModal from '../navModal/NavModal';
